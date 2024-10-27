@@ -1,0 +1,4 @@
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "remix-pi"
+database_id = "c7f27afd-fef2-4869-bb10-3331559477c1"
