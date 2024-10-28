@@ -5,7 +5,7 @@ import { schema } from '~/db';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'New Remix App' },
+    { title: 'Remix D1 App' },
     { name: 'description', content: 'Welcome to Remix!' },
   ];
 };
@@ -29,7 +29,7 @@ export default function Index() {
   return (
     <div className="flex flex-col items-center justify-items-center min-h-screen">
       <main className="flex flex-col flex-grow w-full justify-center py-8 md:px-8 items-center">
-        <h1 className="text-3xl font-bold mb-8">Next PG App</h1>
+        <h1 className="text-3xl font-bold mb-8">Remix D1 App</h1>
         <div className="flex flex-col max-w-screen w-full md:w-[800px] p-4 flex-grow ">
           <h2 className="text-2xl font-bold mb-4">Messages</h2>
           <div className="flex-grow rounded border border-slate-600">
