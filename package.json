@@ -13,7 +13,10 @@
     "typegen": "wrangler types",
     "migration:generate": "drizzle-kit generate",
     "migration:apply:local": "wrangler d1 migrations apply remix-pi --local",
-    "db:create": "wrangler d1 create remix-pi"
+    "migration:apply:remote": "wrangler d1 migrations apply remix-pi --remote",
+    "db:create": "wrangler d1 create remix-pi",
+    "d1": "wrangler d1",
+    "wrangler:types": "wrangler types"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.13.1",
@@ -44,7 +47,7 @@
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "3.57.1"
+    "wrangler": "^3.83.0"
   },
   "engines": {
     "node": ">=20.0.0"
