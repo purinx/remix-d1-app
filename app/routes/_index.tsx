@@ -1,5 +1,5 @@
 import type { LoaderFunctionArgs, MetaFunction } from '@remix-run/cloudflare';
-import { useLoaderData } from '@remix-run/react';
+import { Link, useLoaderData } from '@remix-run/react';
 import { drizzle } from 'drizzle-orm/d1';
 import { schema } from '~/db';
 
@@ -27,44 +27,33 @@ export default function Index() {
   const { messages } = useLoaderData<typeof loader>();
 
   return (
-    <div className="flex flex-col items-center justify-items-center min-h-screen">
-      <main className="flex flex-col flex-grow w-full justify-center py-8 md:px-8 items-center">
-        <h1 className="text-3xl font-bold mb-8">Remix D1 App</h1>
-        <div className="flex flex-col max-w-screen w-full md:w-[800px] p-4 flex-grow ">
-          <h2 className="text-2xl font-bold mb-4">Messages</h2>
-          <div className="flex-grow rounded border border-slate-600">
-            <table className="h-full table-auto w-full">
-              <thead>
-                <tr>
-                  <th className="p-4 text-left border-slate-600 border-b">
-                    ID
-                  </th>
-                  <th className="p-4 text-left border-slate-600 border-b">
-                    From
-                  </th>
-                  <th className="p-4 text-left border-slate-600 border-b">
-                    Body
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {messages.map((message) => (
-                  <tr key={message.id}>
-                    <td className="px-4 py-2">{message.id}</td>
-                    <td className="px-4 py-2">{message.from}</td>
-                    <td className="px-4 py-2">{message.body}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </main>
-      <footer className="font-bold flex items-center justify-center bg-gray-900 w-full p-4 md:p-8">
-        <a className="underline" href="https://github.com/purinx/remix-d1-app">
-          Github
-        </a>
-      </footer>
+    <div className="flex flex-col max-w-screen w-full md:w-[800px] p-4 flex-grow">
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold mb-4">Messages</h2>
+        <Link to="/new" className="bg-blue-800 rounded py-1 px-2">
+          + New Message
+        </Link>
+      </div>
+      <div className="flex-grow rounded border border-slate-600">
+        <table className="h-full table-auto w-full">
+          <thead>
+            <tr>
+              <th className="p-4 text-left border-slate-600 border-b">ID</th>
+              <th className="p-4 text-left border-slate-600 border-b">From</th>
+              <th className="p-4 text-left border-slate-600 border-b">Body</th>
+            </tr>
+          </thead>
+          <tbody>
+            {messages.map((message) => (
+              <tr key={message.id}>
+                <td className="px-4 py-2">{message.id}</td>
+                <td className="px-4 py-2">{message.from}</td>
+                <td className="px-4 py-2">{message.body}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
